@@ -39,4 +39,17 @@ git_commit(){
 	git commit -am " [ $(date "+%a-%d.%m-%H:%M") ] $val_dev $val_next"
 }
 
+git_push(){
+
+ while true; do
+		read -p "✈️  Git push ? [y/n] " yn
+        case $yn in
+            [Yy]*) git push ; return 0  ;;  
+            [Nn]*) echo "Not pushed" ; return  1 ;;
+        esac
+    done
+}
+
 git_commit
+git_push
+
