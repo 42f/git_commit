@@ -50,6 +50,15 @@ git_push(){
     done
 }
 
-git_commit
-git_push
+check_git() {
+	git status&>/dev/null 
+}
+
+if ! check_git; then
+	echo "⚠️  Not a git directory"
+	exit 1
+else
+	git_commit
+	git_push
+fi
 
