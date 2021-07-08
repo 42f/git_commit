@@ -1,0 +1,22 @@
+#!/bin/bash
+
+git_commit(){
+	git status
+	echo -e "LAST COMMIT WAS:\n"
+	git log | head --lines=7
+	git add *
+	echo -e "AFTER ADD *\n"
+	git status
+	read -p "commit message [DEV] = " val_1
+	read -p "commit message [NEXT] = " val_2
+	if [ ! -z $val_1 ]; then
+		val_dev="[DEV] "$val_1
+	fi
+	if [ ! -z $val_2 ]; then
+		val_next="[NEXT] "$val_2
+	fi	
+	echo "Commit message :" $(date "+%a-%d.%m-%H:%M") $val_dev $val_next
+	git commit -am "[$(date "+%a-%d.%m-%H:%M")] $val_dev $val_next"
+}
+
+git_commit
