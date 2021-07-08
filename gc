@@ -16,7 +16,7 @@ git_commit(){
 		val_next="[NEXT] "$val_2
 	fi	
 	echo "Commit message :" $(date "+%a-%d.%m-%H:%M") $val_dev $val_next
-	git commit -am "[$(date "+%a-%d.%m-%H:%M")] $val_dev $val_next"
+	git commit -am "$(date "+%a-%d.%m-%H:%M") $val_dev $val_next"
 }
 
 git_commit
