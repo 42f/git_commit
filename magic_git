@@ -57,8 +57,17 @@ check_git() {
 if ! check_git; then
 	echo "⚠️  Not a git directory"
 	exit 1
+fi
+
+if [[ -z $(git status --porcelain=v1) ]]; then
+	echo "✅  Nothing to commit"
 else
 	git_commit
+fi
+
+if [[ -z $(git diff origin | cat) ]]; then
+	echo "✅  Nothing to push"
+else
 	git_push
 fi
 
