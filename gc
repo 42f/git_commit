@@ -42,7 +42,7 @@ git_commit(){
 git_push(){
 
  while true; do
-		read -p "✈️  Git push ? [y/n] " yn
+		read -p "🚀  Git push ? [y/n] " yn
         case $yn in
             [Yy]*) git push ; return 0  ;;  
             [Nn]*) echo "Not pushed" ; return  1 ;;
